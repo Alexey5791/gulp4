@@ -1,0 +1,19 @@
+{
+  "name": "gulp4",
+  "version": "1.0.0",
+  "description": "gulp template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexey5791/gulp4.git"
+  },
+  "author": "Alexey5791",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexey5791/gulp4/issues"
+  },
+  "homepage": "https://github.com/Alexey5791/gulp4#readme"
+}
