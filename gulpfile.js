@@ -6,8 +6,8 @@ const uglify = require('gulp-uglify');
 // const concat = require('gulp-concat');
  
 sass.compiler = require('node-sass');
- 
-gulp.task('styles', function () {
+
+function styles(){
   return gulp.src('./src/sass/**/*.sass')
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(autoprefixer({
@@ -19,12 +19,21 @@ gulp.task('styles', function () {
       level: 2
     }))
     .pipe(gulp.dest('./dist/css'));
-});
+}
 
-gulp.task('scripts', function () {
+function scripts(){
   return gulp.src('./src/js/**/*.js')
     .pipe(uglify({
       toplevel: 2
     }))
     .pipe(gulp.dest('./dist/js'));
-});
+}
+
+function watch(){
+  gulp.watch('./src/sass/**/*.sass', styles);
+  gulp.watch('./src/js/**/*.js', scripts);
+}
+
+gulp.task('styles', styles);
+gulp.task('scripts', scripts);
+gulp.task('watch', watch);
