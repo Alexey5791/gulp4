@@ -4,7 +4,7 @@
   "description": "gulp template",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm i gulp gulp-sass gulp-clean-css gulp-autoprefixer -d"
   },
   "repository": {
     "type": "git",

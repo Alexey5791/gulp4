@@ -1,5 +1,9 @@
 # gulp4
 gulp template  
+# plugins  
+1. gulp-sass  
+2. gulp-clean-css  
+3. gulp-autoprefixer  
 # How to use  
 npm i gulp-cli -g  
-npm i gulp gulp-sass gulp-clean-css gulp-autoprefixer -d
+npm run build
