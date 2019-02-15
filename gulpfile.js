@@ -3,9 +3,14 @@ const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const autoprefixer = require('gulp-autoprefixer');
 const uglify = require('gulp-uglify');
+const del = require('del');
 // const concat = require('gulp-concat');
  
 sass.compiler = require('node-sass');
+
+function clear(){
+  return del(['dist/*']);
+}
 
 function styles(){
   return gulp.src('./src/sass/**/*.sass')
@@ -37,3 +42,7 @@ function watch(){
 gulp.task('styles', styles);
 gulp.task('scripts', scripts);
 gulp.task('watch', watch);
+
+gulp.task('build', gulp.series(clear,
+                    gulp.parallel(styles, scripts)
+));
