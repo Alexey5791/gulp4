@@ -8,5 +8,4 @@ gulp template
 5. gulp-concat  
 6. browser-sync  
 # How to use  
-npm i gulp-cli -g  
-npm run build
+npm i  
