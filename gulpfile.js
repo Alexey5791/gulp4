@@ -4,6 +4,7 @@ const cleanCSS = require('gulp-clean-css');
 const autoprefixer = require('gulp-autoprefixer');
 const uglify = require('gulp-uglify');
 const del = require('del');
+const browserSync = require('browser-sync');
 // const concat = require('gulp-concat');
  
 sass.compiler = require('node-sass');
@@ -23,7 +24,8 @@ function styles(){
       compatibility: 'ie8',
       level: 2
     }))
-    .pipe(gulp.dest('./dist/css'));
+    .pipe(gulp.dest('./dist/css'))
+    .pipe(browserSync.stream());
 }
 
 function scripts(){
@@ -31,12 +33,19 @@ function scripts(){
     .pipe(uglify({
       toplevel: 2
     }))
-    .pipe(gulp.dest('./dist/js'));
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(browserSync.stream());
 }
 
 function watch(){
+  browserSync.init({
+    server: {
+        baseDir: "./"
+    }
+  });
   gulp.watch('./src/sass/**/*.sass', styles);
   gulp.watch('./src/js/**/*.js', scripts);
+  gulp.watch("./*.html").on('change', browserSync.reload);
 }
 
 gulp.task('styles', styles);
