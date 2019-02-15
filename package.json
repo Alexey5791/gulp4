@@ -4,7 +4,7 @@
   "description": "gulp template",
   "main": "index.js",
   "scripts": {
-    "build": "npm i gulp gulp-sass gulp-clean-css gulp-autoprefixer -d"
+    "build": "npm i gulp gulp-sass gulp-clean-css gulp-autoprefixer gulp-concat gulp-uglify -d"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-clean-css": "^4.0.0",
-    "gulp-sass": "^4.0.2"
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1"
   }
 }
