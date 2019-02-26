@@ -13,6 +13,12 @@ function clear(){
   return del(['dist/*']);
 }
 
+function fonts(){
+  return gulp.src('./src/fonts/**/*{ttf,woff,woff2,svg,eot}')
+  .pipe(gulp.dest('./dist/fonts'))
+}
+
+
 function styles(){
   return gulp.src('./src/sass/**/*.sass')
     .pipe(sass.sync().on('error', sass.logError))
@@ -50,8 +56,9 @@ function watch(){
 
 gulp.task('styles', styles);
 gulp.task('scripts', scripts);
+gulp.task('fonts', fonts);
 gulp.task('watch', watch);
 
 gulp.task('build', gulp.series(clear,
-                    gulp.parallel(styles, scripts)
+                    gulp.parallel(styles, fonts, scripts)
 ));

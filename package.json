@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "gulp template",
   "main": "gulpfile.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Alexey5791/gulp4.git"
@@ -21,6 +19,7 @@
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
+    "gulp-bower": "0.0.14",
     "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.0.2",
