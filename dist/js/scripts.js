@@ -1,1 +1,1 @@
-console.log(4/2);
+let one="1";
