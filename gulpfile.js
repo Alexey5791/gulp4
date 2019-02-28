@@ -6,6 +6,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const del = require('del');
 const browserSync = require('browser-sync');
 const uglify = require('gulp-uglify-es').default;
+const imageMin = require('gulp-imagemin');
 // const concat = require('gulp-concat');
  
 sass.compiler = require('node-sass');
@@ -14,9 +15,16 @@ function clear(){
   return del(['dist/*']);
 }
 
+
 function fonts(){
   return gulp.src('./src/fonts/**/*{ttf,woff,woff2,svg,eot}')
   .pipe(gulp.dest('./dist/fonts'))
+}
+
+function images(){
+  return gulp.src('src/img/**/*')
+            .pipe(imageMin())
+            .pipe(gulp.dest('./dist/img'));
 }
 
 
@@ -56,8 +64,9 @@ function watch(){
 gulp.task('styles', styles);
 gulp.task('scripts', scripts);
 gulp.task('fonts', fonts);
+gulp.task('images', images);
 gulp.task('watch', watch);
 
 gulp.task('build', gulp.series(clear,
-                    gulp.parallel(styles, fonts, scripts)
+                    gulp.parallel(styles, fonts, images, scripts)
 ));

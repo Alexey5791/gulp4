@@ -8,5 +8,6 @@ gulp template
 5. gulp-concat  
 6. browser-sync  
 7. gulp-uglify-es  
+8. gulp-imagemin  
 # How to use  
 npm i  
