@@ -6,8 +6,10 @@ const autoprefixer = require('gulp-autoprefixer');
 const del = require('del');
 const browserSync = require('browser-sync');
 const uglify = require('gulp-uglify-es').default;
+const babel = require('gulp-babel');
 const imageMin = require('gulp-imagemin');
 // const concat = require('gulp-concat');
+const purgecss = require('gulp-purgecss')
  
 sass.compiler = require('node-sass');
 
@@ -31,6 +33,11 @@ function images(){
 function styles(){
   return gulp.src('./src/sass/**/*.sass')
     .pipe(sass.sync().on('error', sass.logError))
+    .pipe(
+      purgecss({
+        content: ['index.html']
+      })
+    )
     .pipe(autoprefixer({
         browsers: ['last 2 versions'],
         cascade: false
